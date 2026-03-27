@@ -15,6 +15,13 @@ export interface IUser extends Document {
   experience?: number;
   address?: string;
   specialization?: string;
+  doctorId?: string;
+  staffId?: string;
+  shift?: string;
+  joiningDate?: string;
+  state?: string;
+  city?: string;
+  pincode?: string;
   comparePassword(password: string): Promise<boolean>;
 }
 
@@ -36,7 +43,6 @@ const UserSchema = new Schema<IUser>(
     address: { type: String },
     specialization: { type: String },
     doctorId: { type: String, unique: true, sparse: true },
-    staffId: { type: String, unique: true, sparse: true },
     staffId: { type: String, unique: true, sparse: true },
     shift: { type: String },
     joiningDate: { type: String },
