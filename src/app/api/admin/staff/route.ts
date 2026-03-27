@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
 
     const user = new User(body);
     await user.save();
-    const userObj = user.toObject() as Record<string, unknown>;
+    const userObj = user.toObject() as unknown as Record<string, unknown>;
     delete userObj.password;
     return NextResponse.json({ success: true, data: userObj }, { status: 201 });
   } catch (error: unknown) {
