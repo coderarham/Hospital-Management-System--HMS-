@@ -25,10 +25,14 @@ export async function POST(req: NextRequest) {
       return response;
     }
 
-    const user = await User.findOne({ email, isActive: true });
+    const user = await User.findOne({ email, isActive: true }).lean() as Record<string, unknown> | null;
     if (!user) return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
+
+    const userDoc = await User.findOne({ email, isActive: true });
+    if (!userDoc) return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
+
       // Doctor portal ke liye Doctor ID verify karo
-      if (user.role === "Doctor") {
+      if (userDoc.role === "Doctor") {
         if (!doctorId) return NextResponse.json({ error: "Doctor ID required" }, { status: 401 });
         if (String(user.doctorId).trim() !== String(doctorId).trim())
           return NextResponse.json({ error: "Invalid Doctor ID" }, { status: 401 });
@@ -36,20 +40,20 @@ export async function POST(req: NextRequest) {
 
       // Staff portals ke liye Staff ID verify karo
       const STAFF_ROLES = ["Reception", "Pharmacy", "Lab", "Security", "Billing"];
-      if (STAFF_ROLES.includes(user.role)) {
+      if (STAFF_ROLES.includes(userDoc.role)) {
         if (!staffId) return NextResponse.json({ error: "Staff ID required" }, { status: 401 });
         if (String(user.staffId).trim() !== String(staffId).trim())
           return NextResponse.json({ error: "Invalid Staff ID" }, { status: 401 });
       }
 
-      const isMatch = await user.comparePassword(password);
+      const isMatch = await userDoc.comparePassword(password);
       if (!isMatch) return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
 
-    const token = signToken({ id: user._id, role: user.role, name: user.name });
+    const token = signToken({ id: userDoc._id, role: userDoc.role, name: userDoc.name });
 
     const response = NextResponse.json({
       success: true,
-      user: { id: user._id, name: user.name, email: user.email, role: user.role },
+      user: { id: userDoc._id, name: userDoc.name, email: userDoc.email, role: userDoc.role },
     });
 
     response.cookies.set("token", token, {
