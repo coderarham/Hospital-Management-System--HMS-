@@ -63,8 +63,7 @@ export default async function DoctorsPage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-              {doctors.map((doc: Record<string, unknown>) => {
-                const dept = doc.departmentId as { name: string } | null;
+              {doctors.map((doc) => {
                 return (
                   <div key={String(doc._id)} className="doc-card bg-white rounded-2xl p-6 transition-all" style={{ border: "1px solid #e2e8f0" }}>
                     {/* Avatar */}
