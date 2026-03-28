@@ -1,6 +1,6 @@
 import Link from "next/link";
-import LoginDropdown from "@/components/ui/LoginDropdown";
 import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
 
 const services = [
   { icon: "🫀", name: "Cardiology", desc: "Heart & cardiovascular care" },
@@ -42,25 +42,7 @@ export default function HomePage() {
 
       <div style={{ backgroundColor: "#f8fafc", color: "#0f172a" }}>
 
-        {/* Navbar */}
-        <nav style={{ backgroundColor: "rgba(255,255,255,0.9)", borderBottom: "1px solid #e2e8f0", backdropFilter: "blur(12px)" }} className="sticky top-0 z-50">
-          <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-            <div className="flex items-center gap-2.5">
-              <div>
-                <span className="text-lg font-black text-gray-900">MediCare</span>
-                <span className="text-xs text-gray-400 ml-2 hidden sm:inline">Hospital Management</span>
-              </div>
-            </div>
-            <div className="hidden md:flex items-center gap-8">
-              <a href="/" className="nav-link">Home</a>
-              <Link href="/doctors" className="nav-link">Doctors</Link>
-              <a href="/services" className="nav-link">Services</a>
-              <a href="/#about" className="nav-link">About</a>
-              <a href="/#contact" className="nav-link">Contact</a>
-            </div>
-            <LoginDropdown />
-          </div>
-        </nav>
+        <Navbar active="Home" />
 
         {/* Hero */}
         <section className="relative overflow-hidden" style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c4a6e 100%)" }}>

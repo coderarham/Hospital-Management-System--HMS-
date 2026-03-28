@@ -1,5 +1,5 @@
 import Link from "next/link";
-import LoginDropdown from "@/components/ui/LoginDropdown";
+import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 const sections = [
@@ -89,24 +89,7 @@ export default function ServicesPage() {
       `}</style>
 
       <div style={{ backgroundColor: "#f8fafc", minHeight: "100vh" }}>
-
-        {/* Navbar */}
-        <nav style={{ backgroundColor: "rgba(255,255,255,0.9)", borderBottom: "1px solid #e2e8f0", backdropFilter: "blur(12px)" }} className="sticky top-0 z-50">
-          <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center gap-2.5">
-              <span className="text-lg font-black text-gray-900">MediCare</span>
-              <span className="text-xs text-gray-400 hidden sm:inline">Hospital Management</span>
-            </Link>
-            <div className="hidden md:flex items-center gap-8">
-              <Link href="/" className="nav-link">Home</Link>
-              <Link href="/doctors" className="nav-link">Doctors</Link>
-              <Link href="/services" className="nav-link" style={{ color: "#0284c7", backgroundColor: "#f0f9ff", borderColor: "#bae6fd" }}>Services</Link>
-              <Link href="/#about" className="nav-link">About</Link>
-              <Link href="/#contact" className="nav-link">Contact</Link>
-            </div>
-            <LoginDropdown />
-          </div>
-        </nav>
+        <Navbar active="Services" />
 
         {/* Header */}
         <div className="max-w-7xl mx-auto px-6 pt-12 pb-8">
