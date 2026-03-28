@@ -10,15 +10,6 @@ const stats = [
   { value: "24/7", label: "Emergency Care", icon: "🚑" },
 ];
 
-const achievements = [
-  { icon: "🥇", title: "Best Hospital Award 2023", desc: "Recognized by National Health Council for outstanding patient care and medical excellence.", color: "#fef3c7", border: "#fcd34d" },
-  { icon: "🔬", title: "ISO 9001:2015 Certified", desc: "Internationally certified for quality management systems in healthcare delivery.", color: "#d1fae5", border: "#6ee7b7" },
-  { icon: "🏅", title: "NABH Accreditation", desc: "Accredited by National Accreditation Board for Hospitals for highest quality standards.", color: "#dbeafe", border: "#93c5fd" },
-  { icon: "💡", title: "Innovation in Healthcare", desc: "Pioneered AI-assisted diagnostics and robotic surgery in Eastern India.", color: "#f5f3ff", border: "#c4b5fd" },
-  { icon: "🌍", title: "Community Health Leader", desc: "Conducted 500+ free health camps serving over 1 lakh underprivileged patients.", color: "#cffafe", border: "#67e8f9" },
-  { icon: "📚", title: "Research Excellence", desc: "Published 200+ peer-reviewed medical research papers in international journals.", color: "#fee2e2", border: "#fca5a5" },
-];
-
 const goals = [
   { icon: "🎯", title: "Universal Healthcare Access", desc: "Make quality healthcare accessible and affordable for every individual, regardless of economic background.", color: "#0284c7" },
   { icon: "🤖", title: "Technology-Driven Care", desc: "Integrate cutting-edge AI, robotics, and telemedicine to deliver faster, more accurate diagnoses.", color: "#7c3aed" },
@@ -33,15 +24,6 @@ const values = [
   { icon: "✅", title: "Integrity", desc: "Transparent, honest, and ethical in every decision we make." },
   { icon: "🔬", title: "Excellence", desc: "Committed to the highest standards of medical care and research." },
   { icon: "🤝", title: "Teamwork", desc: "Doctors, nurses, and staff working together for your well-being." },
-];
-
-const timeline = [
-  { year: "2000", title: "Founded", desc: "MediCare Hospital established with 50 beds and 20 doctors in Kolkata." },
-  { year: "2005", title: "First Expansion", desc: "Expanded to 200 beds, added ICU, NICU, and advanced surgical suites." },
-  { year: "2010", title: "NABH Accreditation", desc: "Received national accreditation for quality healthcare standards." },
-  { year: "2015", title: "Research Center", desc: "Launched dedicated medical research and innovation center." },
-  { year: "2020", title: "Digital Transformation", desc: "Introduced telemedicine, AI diagnostics, and digital health records." },
-  { year: "2025", title: "Today", desc: "500+ doctors, 30+ departments, serving 50,000+ patients annually." },
 ];
 
 export default function AboutPage() {
@@ -117,25 +99,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Achievements */}
-        <section className="px-6 py-16" style={{ backgroundColor: "#f8fafc" }}>
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-10">
-              <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full" style={{ color: "#0284c7", backgroundColor: "#e0f2fe" }}>Milestones</span>
-              <h2 className="text-3xl font-black mt-3 text-gray-900">Our Achievements</h2>
-              <p className="text-sm mt-2 text-gray-500">Recognition that reflects our commitment to excellence</p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {achievements.map((a) => (
-                <div key={a.title} className="bg-white rounded-2xl p-6 hover:shadow-md transition-all" style={{ border: `1px solid ${a.border}` }}>
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4" style={{ backgroundColor: a.color }}>{a.icon}</div>
-                  <h3 className="font-black text-gray-900 mb-2">{a.title}</h3>
-                  <p className="text-xs text-gray-500 leading-relaxed">{a.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+
 
         {/* Goals */}
         <section className="px-6 py-16" style={{ backgroundColor: "#ffffff", borderTop: "1px solid #e2e8f0", borderBottom: "1px solid #e2e8f0" }}>
@@ -158,35 +122,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Timeline */}
-        <section className="px-6 py-16" style={{ backgroundColor: "#f8fafc" }}>
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-10">
-              <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full" style={{ color: "#0284c7", backgroundColor: "#e0f2fe" }}>Our Journey</span>
-              <h2 className="text-3xl font-black mt-3 text-gray-900">25 Years of Growth</h2>
-            </div>
-            <div className="relative">
-              <div className="absolute left-6 top-0 bottom-0 w-0.5" style={{ backgroundColor: "#e2e8f0" }} />
-              <div className="space-y-8">
-                {timeline.map((t, i) => (
-                  <div key={t.year} className="flex gap-6 items-start">
-                    <div className="relative flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center text-xs font-black text-white z-10"
-                      style={{ backgroundColor: i === timeline.length - 1 ? "#0284c7" : "#0f172a" }}>
-                      {t.year.slice(2)}
-                    </div>
-                    <div className="bg-white rounded-2xl p-5 flex-1" style={{ border: "1px solid #e2e8f0" }}>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-xs font-bold" style={{ color: "#0284c7" }}>{t.year}</span>
-                        <span className="font-black text-gray-900 text-sm">{t.title}</span>
-                      </div>
-                      <p className="text-xs text-gray-500 leading-relaxed">{t.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+
 
         <Footer />
       </div>
