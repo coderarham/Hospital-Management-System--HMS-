@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { verifyToken } from "@/lib/auth";
 import { ROLE_DASHBOARDS, UserRole } from "@/types";
 
-const PUBLIC_PATHS = ["/", "/login", "/staff-select", "/doctors", "/services", "/terms", "/privacy"];
+const PUBLIC_PATHS = ["/", "/login", "/staff-select", "/doctors", "/services", "/about", "/contact", "/terms", "/privacy"];
 
 export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;

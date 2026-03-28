@@ -50,8 +50,11 @@ export default async function DoctorsPage() {
                 return (
                   <div key={String(doc._id)} className="doc-card bg-white rounded-2xl p-6 transition-all" style={{ border: "1px solid #e2e8f0" }}>
                     {/* Avatar */}
-                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-black mb-4" style={{ backgroundColor: "#e0f2fe", color: "#0284c7" }}>
-                      {String(doc.name).charAt(0).toUpperCase()}
+                    <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4" style={{ backgroundColor: "#e0f2fe" }}>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="#0284c7" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                      </svg>
                     </div>
 
                     <h3 className="font-bold text-gray-900 text-base">Dr. {String(doc.name)}</h3>
