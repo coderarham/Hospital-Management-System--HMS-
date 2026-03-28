@@ -13,13 +13,10 @@ export async function POST(req: NextRequest) {
       if (password !== process.env.ADMIN_PASSWORD)
         return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
 
-      const adminUser = await User.findOne({ role: "Admin", isActive: true });
-      if (!adminUser) return NextResponse.json({ error: "Admin not found in DB" }, { status: 401 });
-
-      const token = signToken({ id: adminUser._id, role: "Admin", name: adminUser.name });
+      const token = signToken({ id: "admin", role: "Admin", name: "Admin" });
       const response = NextResponse.json({
         success: true,
-        user: { id: adminUser._id, name: adminUser.name, email: adminUser.email, role: "Admin" },
+        user: { id: "admin", name: "Admin", email: process.env.ADMIN_EMAIL, role: "Admin" },
       });
       response.cookies.set("token", token, { httpOnly: true, secure: process.env.NODE_ENV === "production", maxAge: 60 * 60 * 24 * 7, path: "/" });
       return response;
