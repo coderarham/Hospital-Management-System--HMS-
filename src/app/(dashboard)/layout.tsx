@@ -73,8 +73,8 @@ export default async function DashboardLayout({ children }: { children: React.Re
   return (
     <div className="flex min-h-screen" style={{ backgroundColor: "#f8fafc" }}>
       <Sidebar role={decoded.role} userName={decoded.name} navItems={navItems} />
-      <main className="flex-1 overflow-auto" style={{ backgroundColor: "#f8fafc" }}>
-        <div className="p-8">{children}</div>
+      <main className="flex-1 overflow-auto min-w-0" style={{ backgroundColor: "#f8fafc" }}>
+        <div className="p-4 md:p-8 pt-20 md:pt-8">{children}</div>
       </main>
     </div>
   );
