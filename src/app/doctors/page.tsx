@@ -4,6 +4,8 @@ import "@/models/Department";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
+export const revalidate = 0;
+
 async function getDoctors() {
   await connectDB();
   const doctors = await User.find({ role: "Doctor", isActive: true })
