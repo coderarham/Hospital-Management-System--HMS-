@@ -1,6 +1,7 @@
 import mongoose, { Schema, Document } from "mongoose";
 
 export interface IPrescription extends Document {
+  rxId?: string;
   appointmentId: mongoose.Types.ObjectId;
   patientId: mongoose.Types.ObjectId;
   doctorId: mongoose.Types.ObjectId;
@@ -12,6 +13,7 @@ export interface IPrescription extends Document {
 
 const PrescriptionSchema = new Schema<IPrescription>(
   {
+    rxId: { type: String, unique: true, sparse: true },
     appointmentId: { type: Schema.Types.ObjectId, ref: "Appointment", required: true },
     patientId: { type: Schema.Types.ObjectId, ref: "User", required: true },
     doctorId: { type: Schema.Types.ObjectId, ref: "User", required: true },

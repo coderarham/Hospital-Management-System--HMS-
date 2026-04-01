@@ -19,7 +19,7 @@ export async function GET(req: NextRequest) {
     else if (searchParams.get("patientId")) query.patientId = searchParams.get("patientId");
 
     const appointments = await Appointment.find(query)
-      .populate("patientId", "name email phone")
+      .populate("patientId", "name email phone patientId gender dateOfBirth address state city")
       .populate("doctorId", "name")
       .populate("departmentId", "name")
       .sort({ appointmentDate: -1 });

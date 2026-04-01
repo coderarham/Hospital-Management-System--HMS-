@@ -22,6 +22,7 @@ const NAV_ITEMS: Record<string, { label: string; href: string; icon: string }[]>
     { label: "Patients", href: "/doctor/patients", icon: "🧑⚕️" },
     { label: "Prescriptions", href: "/doctor/prescriptions", icon: "💊" },
     { label: "Lab Reports", href: "/doctor/lab-reports", icon: "🔬" },
+    { label: "History", href: "/doctor/history", icon: "📋" },
   ],
   Patient: [
     { label: "Dashboard", href: "/patient", icon: "📊" },

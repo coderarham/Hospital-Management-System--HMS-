@@ -50,14 +50,12 @@ export default function Sidebar({ role, userName, navItems }: SidebarProps) {
             <span>{item.label}</span>
           </Link>
         ))}
-      </nav>
-
-      <div className="p-4" style={{ borderTop: "1px solid #e2e8f0" }}>
-        <button onClick={handleLogout} className="sidebar-link w-full">
+        <button onClick={handleLogout} className="sidebar-link w-full mt-1">
           <span className="text-base">🚪</span>
           <span>Logout</span>
         </button>
-      </div>
+      </nav>
+
     </aside>
   );
 

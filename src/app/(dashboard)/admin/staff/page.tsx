@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
+import IndiaAddressFields from "@/components/ui/IndiaAddressFields";
 
 interface Staff {
   _id: string;
@@ -211,18 +212,14 @@ export default function StaffManagementPage() {
                 </div>
 
                 <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Address <span className="text-gray-400 font-normal text-xs">(optional)</span></label>
-                  <textarea className="input resize-none" rows={2} placeholder="Staff address" value={form.address} onChange={(e) => f("address", e.target.value)} />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">State</label>
-                  <input className="input" placeholder="e.g. Maharashtra" value={form.state} onChange={(e) => f("state", e.target.value)} />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">City</label>
-                  <input className="input" placeholder="e.g. Mumbai" value={form.city} onChange={(e) => f("city", e.target.value)} />
+                  <IndiaAddressFields
+                    address={form.address}
+                    state={form.state}
+                    city={form.city}
+                    onAddressChange={(v) => f("address", v)}
+                    onStateChange={(v) => f("state", v)}
+                    onCityChange={(v) => f("city", v)}
+                  />
                 </div>
 
                 <div>

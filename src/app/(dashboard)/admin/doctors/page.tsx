@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
+import IndiaAddressFields from "@/components/ui/IndiaAddressFields";
 
 const SPECIALIZATIONS = [
   "General Physician/Medicine", "Cardiology", "Neurology", "Endocrinology/Diabetology",
@@ -22,12 +23,14 @@ interface Doctor {
   gender?: string;
   experience?: number;
   address?: string;
+  state?: string;
+  city?: string;
   specialization?: string;
 }
 
 const emptyForm = {
   name: "", email: "", password: "", phone: "", role: "Doctor",
-  gender: "", experience: "", address: "", specialization: "",
+  gender: "", experience: "", address: "", state: "", city: "", specialization: "",
 };
 
 export default function AdminDoctorsPage() {
@@ -73,6 +76,8 @@ export default function AdminDoctorsPage() {
       gender: d.gender || "",
       experience: String(d.experience || ""),
       address: d.address || "",
+      state: d.state || "",
+      city: d.city || "",
       specialization: d.specialization || "",
     });
     setShowPwd(false);
@@ -209,8 +214,14 @@ export default function AdminDoctorsPage() {
                 </div>
 
                 <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Address</label>
-                  <textarea className="input resize-none" rows={2} placeholder="Doctor's address" value={form.address} onChange={(e) => f("address", e.target.value)} />
+                  <IndiaAddressFields
+                    address={form.address}
+                    state={form.state}
+                    city={form.city}
+                    onAddressChange={(v) => f("address", v)}
+                    onStateChange={(v) => f("state", v)}
+                    onCityChange={(v) => f("city", v)}
+                  />
                 </div>
               </div>
 

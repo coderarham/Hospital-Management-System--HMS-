@@ -17,6 +17,7 @@ export interface IUser extends Document {
   specialization?: string;
   doctorId?: string;
   staffId?: string;
+  patientId?: string;
   shift?: string;
   joiningDate?: string;
   state?: string;
@@ -44,6 +45,7 @@ const UserSchema = new Schema<IUser>(
     specialization: { type: String },
     doctorId: { type: String, unique: true, sparse: true },
     staffId: { type: String, unique: true, sparse: true },
+    patientId: { type: String, unique: true, sparse: true },
     shift: { type: String },
     joiningDate: { type: String },
     state: { type: String },
